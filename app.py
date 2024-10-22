@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import matplotlib
 import joblib
 import logging
@@ -180,3 +181,76 @@ def main():
 
 if __name__ == "__main__":
     main()
+=======
+import requests
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
+import matplotlib.pyplot as plt
+import seaborn as sns
+import json
+from datetime import datetime
+
+# Funzione per ottenere i dati delle criptovalute dalle API (CoinGecko come esempio)
+def get_crypto_data(crypto_id, days=30):
+    url = f'https://api.coingecko.com/api/v3/coins/{crypto_id}/market_chart?vs_currency=usd&days={days}'
+    response = requests.get(url)
+    data = response.json()
+    prices = data['prices']
+    df = pd.DataFrame(prices, columns=['timestamp', 'price'])
+    df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
+    return df
+
+# Funzione per ottenere dati da un ambiente Web3 (es. Solana) tramite API
+def get_solana_data():
+    url = "https://public-api.solscan.io/market/token/new-listings"
+    response = requests.get(url)
+    data = json.loads(response.text)
+    df = pd.json_normalize(data)
+    return df
+
+# Caricamento dei dati delle criptovalute (es. Bitcoin) e nuovi token da Solana
+bitcoin_data = get_crypto_data('bitcoin', days=365)
+solana_new_tokens = get_solana_data()
+
+# Unione dei due dataset (es. puoi usare i dati di Solana come nuove feature)
+data = bitcoin_data.copy()
+# Aggiungere colonne rilevanti da solana_new_tokens
+data['new_tokens_count'] = len(solana_new_tokens)
+
+# Preparazione dei dati per il machine learning
+# Sostituisci 'price' con altre feature rilevanti se disponibili
+X = data[['new_tokens_count']]  # Features
+y = data['price']  # Target (prezzo)
+
+# Suddivisione dei dati in set di training e test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Utilizzo di un modello Random Forest per le previsioni
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Previsioni sui dati di test
+y_pred = model.predict(X_test)
+
+# Valutazione delle prestazioni del modello
+mse = mean_squared_error(y_test, y_pred)
+print(f"Mean Squared Error: {mse}")
+
+# Visualizzazione dei risultati
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x=y_test, y=y_pred)
+plt.xlabel('Valori Reali')
+plt.ylabel('Previsioni')
+plt.title('Confronto tra Valori Reali e Previsioni')
+plt.show()
+
+# Funzione per salvare i dati aggiornati nel database (in caso di necessità)
+def save_data_to_csv(df, filename):
+    df.to_csv(filename, index=False)
+    print(f"Dati salvati in {filename}")
+
+# Salva i dati per eventuali analisi future
+save_data_to_csv(data, 'crypto_data.csv')
+>>>>>>> 5cd7c17 (Initial commit)
