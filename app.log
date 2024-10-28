@@ -1,0 +1,18 @@
+2024-10-28 13:48:24,835 - INFO - Starting data collection and model training.
+2024-10-28 13:48:32,343 - INFO - Random Forest Migliori Parametri: {'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 150}
+2024-10-28 13:48:32,343 - INFO - Random Forest MSE: 209808412.6649618
+2024-10-28 13:48:32,366 - INFO - Modello Random Forest salvato come 'random_forest_model.pkl'
+2024-10-28 13:48:33,748 - INFO - Gradient Boosting Migliori Parametri: {'learning_rate': 0.2, 'max_depth': 7, 'n_estimators': 150, 'subsample': 1.0}
+2024-10-28 13:48:33,748 - INFO - Gradient Boosting MSE: 444978766.0306877
+2024-10-28 13:48:33,937 - INFO - Grafico dei risultati salvato come 'coingecko_predictions.png'
+2024-10-28 13:48:33,938 - INFO - Data processing and model training completed successfully.
+2024-10-28 13:53:22,104 - INFO - Prediction saved with data: {'market_cap_rank': 10.0, 'total_volume': 5000000.0, 'price_change_percentage_24h': 2.0, 'market_cap': 3000000000.0, 'circulating_supply': 1500000.0, 'total_supply': 2000000.0} and predicted price: 25315.50570144664
+2024-10-28 13:53:22,104 - INFO - Prediction request: {'market_cap_rank': 10.0, 'total_volume': 5000000.0, 'price_change_percentage_24h': 2.0, 'market_cap': 3000000000.0, 'circulating_supply': 1500000.0, 'total_supply': 2000000.0}, Predicted price: 25315.50570144664
+2024-10-28 14:03:03,656 - INFO - Prediction saved with data: {'market_cap_rank': 10.0, 'total_volume': 45000000.0, 'price_change_percentage_24h': 2.0, 'market_cap': 2000000000.0, 'circulating_supply': 1800000.0, 'total_supply': 2100000.0} and predicted price: 25315.50570144664
+2024-10-28 14:03:03,657 - INFO - Prediction request: {'market_cap_rank': 10.0, 'total_volume': 45000000.0, 'price_change_percentage_24h': 2.0, 'market_cap': 2000000000.0, 'circulating_supply': 1800000.0, 'total_supply': 2100000.0}, Predicted price: 25315.50570144664
+2024-10-28 14:06:52,058 - INFO - Prediction saved with data: {'market_cap_rank': 10.0, 'total_volume': 45000000.0, 'price_change_percentage_24h': 2.0, 'market_cap': 2000000000.0, 'circulating_supply': 1800000.0, 'total_supply': 2100000.0} and predicted price: 25315.50570144664
+2024-10-28 14:06:52,058 - INFO - Prediction request: {'market_cap_rank': 10.0, 'total_volume': 45000000.0, 'price_change_percentage_24h': 2.0, 'market_cap': 2000000000.0, 'circulating_supply': 1800000.0, 'total_supply': 2100000.0}, Predicted price: 25315.50570144664
+2024-10-28 16:53:24,865 - INFO - Prediction saved with data: {'market_cap_rank': 10.0, 'total_volume': 45000000.0, 'price_change_percentage_24h': 2.0, 'market_cap': 2000000000.0, 'circulating_supply': 1800000.0, 'total_supply': 2100000.0} and predicted price: 25315.50570144664
+2024-10-28 16:53:24,865 - INFO - Prediction request: {'market_cap_rank': 10.0, 'total_volume': 45000000.0, 'price_change_percentage_24h': 2.0, 'market_cap': 2000000000.0, 'circulating_supply': 1800000.0, 'total_supply': 2100000.0}, Predicted price: 25315.50570144664
+2024-10-28 17:00:04,734 - INFO - Prediction saved with data: {'market_cap_rank': 10.0, 'total_volume': 45000000.0, 'price_change_percentage_24h': 2.0, 'market_cap': 2000000000.0, 'circulating_supply': 1800000.0, 'total_supply': 2100000.0} and predicted price: 25315.50570144664
+2024-10-28 17:00:04,734 - INFO - Prediction request: {'market_cap_rank': 10.0, 'total_volume': 45000000.0, 'price_change_percentage_24h': 2.0, 'market_cap': 2000000000.0, 'circulating_supply': 1800000.0, 'total_supply': 2100000.0}, Predicted price: 25315.50570144664
